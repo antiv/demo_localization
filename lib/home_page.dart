@@ -1,3 +1,4 @@
+import 'package:demo_localization/theme/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
         title: const Text('title').tr(),
         actions: [LangSelector()],
       ),
@@ -60,6 +62,33 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          FloatingActionButton(
+            backgroundColor: Colors.blue,
+            onPressed: () {
+              ThemeService().setTheme('default');
+            },
+            child: const Icon(Icons.color_lens_outlined, color: Colors.white),
+          ),
+          FloatingActionButton(
+            backgroundColor: Colors.green,
+            onPressed: () {
+              ThemeService().setTheme('green');
+            },
+            child: const Icon(Icons.color_lens_outlined, color: Colors.white),
+          ),
+          FloatingActionButton(
+            backgroundColor: Colors.red,
+            onPressed: () {
+              ThemeService().setTheme('red');
+            },
+            child: const Icon(Icons.color_lens_outlined, color: Colors.white),
+          ),
+        ],
+      )
     );
   }
 }

@@ -7,12 +7,12 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
 class ImAssetLoader extends AssetLoader {
-  String assetPath = 'assets/l10n';
+  String assetPath = 'assets/lang';
   @override
   Future<Map<String, dynamic>> load(String path, Locale locale) async {
     log('easy localization loader: load http $path loading locale: ${locale.toString()}');
     try {
-      var url = _getLangUrl(locale); //Uri.parse('$path${locale.toString()}.json');
+      final url = _getLangUrl(locale); //Uri.parse('$path${locale.toString()}.json');
       // await Future.delayed(const Duration(milliseconds: 1000));
       final res = await http.get(url);
       if (res.statusCode == 200) {
@@ -37,8 +37,8 @@ class ImAssetLoader extends AssetLoader {
   }
 
   Future<Map<String, dynamic>> _loadFromAsset(Locale locale) async {
-    final string =  await rootBundle
-            .loadString('$assetPath/${locale.languageCode}.json');
+    final string = await rootBundle
+            .loadString('$assetPath/${locale.scriptCode != null ? '${locale.languageCode}-Cyrl-${locale.countryCode}' : '${locale.languageCode}-${locale.countryCode}'}.json');
     final res = json.decode(string);
     if (locale.toString() == 'sr_Latn_RS') {
       /// convert cyrillic to latin
