@@ -7,7 +7,7 @@ This is a demo app that demonstrates language and theme support using the `easy_
 1. Clone the repository:
 
    ```shell
-   git clone <repository_url>
+   git clone git@github.com:antiv/demo_localization.git
    ```
 
 2. Navigate to the project directory:
@@ -61,6 +61,3 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 ## License
 
 This demo app is licensed under the [MIT License](LICENSE).
-```
-
-Please remember to replace `<repository_url>` in the above text with the actual URL of your repository.
