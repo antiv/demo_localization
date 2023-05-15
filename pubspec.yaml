@@ -24,6 +24,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   easy_localization: ^3.0.1
   http: ^0.13.6
+  json_theme: ^4.0.3+2
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
@@ -38,4 +40,19 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/lang/
+    - assets/themes/
+    - assets/fonts/
+
+  fonts:
+    - family: 'lato'
+      fonts:
+        - asset: 'assets/fonts/Lato-Regular.ttf'
+
+    - family: 'metal'
+      fonts:
+        - asset: 'assets/fonts/MetalMania-Regular.ttf'
+
+    - family: 'MaterialIcons'
+      fonts:
+        - asset: 'assets/fonts/MaterialIcons-Regular.ttf'
 
