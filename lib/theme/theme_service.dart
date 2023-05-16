@@ -21,10 +21,10 @@ class ThemeService extends ChangeNotifier {
 
   setTheme(String? themeId) async {
     final themeJson = await load(themeId);
-    theme = ThemeDecoder.decodeThemeData(
+    theme = (ThemeDecoder.decodeThemeData(
       themeJson,
       validate: true,
-      ) ?? ThemeData();
+      ) ?? ThemeData()).copyWith(useMaterial3: true);
     notifyListeners();
   }
 
